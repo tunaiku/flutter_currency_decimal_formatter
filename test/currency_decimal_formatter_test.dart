@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:intl/intl.dart' show NumberFormat;
 import 'package:decimal/decimal.dart' show Decimal;
 import 'package:currency_decimal_formatter/currency_decimal_formatter.dart';
 

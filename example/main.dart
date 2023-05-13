@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:currency_decimal_formatter/currency_decimal_formatter.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,23 +17,20 @@ class MyApp extends StatelessWidget {
 class ExamplePage extends StatefulWidget {
   final String title;
 
-  const ExamplePage({Key key, this.title}) : super(key: key);
+  const ExamplePage({Key? key, required this.title}) : super(key: key);
 
   @override
   _ExamplePageState createState() => _ExamplePageState();
 }
 
-class _ExampleMask {
-  final TextEditingController textController = TextEditingController();
-}
-
 class _ExamplePageState extends State<ExamplePage> {
-  String _currency;
+  final TextEditingController textController = TextEditingController();
+  String? _currency;
 
   @override
   Widget build(BuildContext context) {
     String locale = Localizations.localeOf(context).toString();
-    int decimalDigits = NumberFormat.currency(name: _currency).decimalDigits;
+    int? decimalDigits = NumberFormat.currency(name: _currency).decimalDigits;
     CurrencyTextInputFormatter textFormatter = CurrencyTextInputFormatter(
       locale: locale,
       decimalDigits: decimalDigits,
@@ -48,7 +45,7 @@ class _ExamplePageState extends State<ExamplePage> {
             child: new Text(value),
           );
         }).toList(),
-        onChanged: (String value) {
+        onChanged: (String? value) {
           _currency = value;
         },
       ),

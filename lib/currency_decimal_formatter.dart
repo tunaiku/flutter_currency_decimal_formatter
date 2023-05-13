@@ -1,6 +1,5 @@
 library currency_decimal_formatter;
 
-import 'dart:ui' show TextDirection;
 import 'package:flutter/services.dart';
 import 'package:decimal/decimal.dart' show Decimal;
 import 'package:intl/intl.dart' show NumberFormat;

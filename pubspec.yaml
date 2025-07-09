@@ -2,19 +2,19 @@ name: currency_decimal_formatter
 description: >-
   Currency TextField formatter and utilities for converting between text and currency
   amounts.
-version: 0.0.8
+version: 0.0.9
 homepage: https://github.com/yuriescl/flutter_currency_decimal_formatter
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  intl: ^0.17.0
-  decimal: ^1.0.0
+  intl: ^0.19.0
+  decimal: ^2.3.3
 
 dev_dependencies:
   flutter_test:

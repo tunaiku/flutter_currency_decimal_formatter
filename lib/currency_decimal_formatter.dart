@@ -48,7 +48,7 @@ class CurrencyFormatter {
       try {
         int.parse(result[0]);
       } on FormatException {
-        result = result.substring(1, result.length);
+        result = result.substring(1);
       }
     }
     return result;
@@ -61,7 +61,7 @@ class CurrencyFormatter {
       try {
         int.parse(result[0]);
       } on FormatException {
-        result = result.substring(1, result.length);
+        result = result.substring(1);
       }
     }
     return result;
@@ -103,10 +103,10 @@ class CurrencyTextInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
-    if (newValue.text == '') {
+    if (newValue.text.isEmpty) {
       return TextEditingValue(
           text: '',
-          selection: TextSelection.fromPosition(TextPosition(offset: 0)));
+          selection: TextSelection.fromPosition(const TextPosition(offset: 0)));
     } else {
       int decimalDigits = _formatter.decimalDigits!;
       NumberFormat format = _formatter.format;
@@ -115,7 +115,7 @@ class CurrencyTextInputFormatter extends TextInputFormatter {
 
       String newText = newValue.text;
       try {
-        formatter.stringFromString(newText);
+        _formatter.stringFromString(newText);
       } on FormatException {
         return oldValue;
       }
@@ -136,7 +136,7 @@ class CurrencyTextInputFormatter extends TextInputFormatter {
         if (newText.length > decimalDigits) {
           newText = newText.substring(0, newText.length - decimalDigits) +
               decimalSep +
-              newText.substring(newText.length - decimalDigits, newText.length);
+              newText.substring(newText.length - decimalDigits);
         } else {
           String newTextWithZeroes = '';
           while (newTextWithZeroes.length + newText.length < decimalDigits) {
@@ -151,7 +151,7 @@ class CurrencyTextInputFormatter extends TextInputFormatter {
         if (value == Decimal.zero) {
           return TextEditingValue(
               text: '',
-              selection: TextSelection.fromPosition(TextPosition(offset: 0)));
+              selection: TextSelection.fromPosition(const TextPosition(offset: 0)));
         }
       }
       newText = format.format(parsed);

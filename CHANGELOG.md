@@ -1,3 +1,13 @@
+## 0.0.9
+
+* Added support for Flutter SDK 35 (Android API level 35)
+* Updated Flutter SDK requirement to >=3.10.0
+* Updated Dart SDK requirement to >=3.0.0
+* Updated dependencies: intl ^0.19.0, decimal ^2.3.3
+* Modernized example app with Material 3 design
+* Fixed compatibility issues with newer Flutter versions
+* Added proper Android and iOS configuration for example app
+
 ## 0.0.8
 
 * updated README
